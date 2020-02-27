@@ -6,6 +6,7 @@ function App() {
   return (
     <div>
       <form onSubmit={(evt) => {
+        evt.preventDefault()
         console.log("onSubmit took place")
       }}>
         <input 
