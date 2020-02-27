@@ -6,12 +6,13 @@ import "./App.css";
 
 function App() {
   const [inputValue, setInputValue] = React.useState("")
+  console.log(inputValue)
  
   return (
     <div>
       <form onSubmit={evt => {
         evt.preventDefault();
-        console.log(evt.target.elements.query.value);
+        setInputValue(evt.target.elements.query.value);
       }}>
         <input 
           type="text" 
