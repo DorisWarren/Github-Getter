@@ -5,6 +5,8 @@ import "./App.css";
 // https://api.github.com/search/repositories?q=doris
 
 function App() {
+  const [inputValue, setInputValue] = React.useState("")
+ 
   return (
     <div>
       <form onSubmit={evt => {
