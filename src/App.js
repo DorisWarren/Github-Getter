@@ -2,12 +2,26 @@ import React from 'react';
 import "./App.css";
 
 
-// https://api.github.com/search/repositories?q=doris
 
 function App() {
   const [inputValue, setInputValue] = React.useState("")
-  console.log(inputValue)
  
+  React.useEffect(() => {
+    if (!inputValue) {
+      return;
+    }
+
+    // API Call 
+
+    fetch("https://api.github.com/search/repositories?q=doris" + inputValue)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      });
+  }, [inputValue])
+
   return (
     <div>
       <form onSubmit={evt => {
