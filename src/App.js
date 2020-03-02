@@ -4,7 +4,8 @@ import "./App.css";
 
 
 function App() {
-  const [inputValue, setInputValue] = React.useState("")
+  const [inputValue, setInputValue] = React.useState("");
+  const [repos, setRepos] = React.useState([])
  
   React.useEffect(() => {
     if (!inputValue) {
@@ -13,14 +14,17 @@ function App() {
 
     // API Call 
 
-    fetch("https://api.github.com/search/repositories?q=doris" + inputValue)
+    fetch("https://api.github.com/search/repositories?q=" + inputValue)
       .then(response => {
         return response.json();
       })
       .then(data => {
         console.log(data);
+        setRepos(data.items)
       });
   }, [inputValue])
+
+console.log(repos);
 
   return (
     <div>
@@ -34,6 +38,14 @@ function App() {
           placeholder="Search Github Repositories"
         />
       </form>
+      <ul>
+        {repos.map( repo => {
+          return <li key={repo.id}>
+            <a href={repo.html_url}>{repo.name}</a>
+            <p>{repo.description}</p>
+          </li>;
+        })}
+      </ul>
     </div>
   );
 }
