@@ -1,0 +1,71 @@
+* {
+  margin:0;
+  padding:0;
+  /* background-color: #F4F4F4; */
+  font-family: 'Noto Sans';
+
+}
+
+.container {
+  background-color: gray;
+  width: 100%;
+}
+.github_search_bar {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  display: block;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+
+}
+.github_search_bar input[type=text] {
+
+}
+
+
+.github_search_bar:focus {
+  border: 1px solid light gray;
+ 
+}
+
+.repo_list {
+  display: flex;
+  /* margin: 25px 70px 25px 50px; */
+  list-style: none;
+  /* padding: 50px; */
+  border: 1px solid pink ;
+  margin: auto;
+  width: 62%;
+  /* padding: 10px; */
+  display: block;
+  
+}
+
+.repo_items {
+  border: 1px solid purple;
+  display:flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  justify-content: space-between;
+}
+.list_details {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+
+}
+
+.list_details:hover{
+  color:pink; 
+  text-decoration:none; 
+  cursor:pointer;  
+}
+
+.react-icons {
+
+}
