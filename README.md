@@ -12,10 +12,10 @@ _GG (Github-Getter) Is a single page application written in React that will allo
 
 ## Development Notes
 * _I challenged my self and decided to use React hooks on this project. I did this because, hooks are my not my strong suit. But hey...I feel much better about it now!_
-* _working through the code I would change the structure of how I displayed the data. I would have the <ul> tags and replace them with a <div> to make my code cleaner and readable. It made it quite painful to style._
-* _If I where to have more time, I would add animations to my search bar to make it feel alive. I would also add boxes/box-shadows around each repo. Doing this would make selecting the repo easier instead of having to hover over the repositories name and then click. _
+* _working through the code I would change the structure of how I displayed the data. I would have the ul tags and replace them with a div to make my code cleaner and readable. It made it quite painful to style._
+* _If I where to have more time, I would add animations to my search bar to make it feel alive. I would also add boxes/box-shadows around each repo. Doing this would make selecting the repo easier instead of having to hover over the repositories name and then click._
 * _Another biggie would be limiting the amount of data to ten repositories at a time._
-*_I would love to chat a bit more with you about future changes to this application. Cheers!_
+* _I would love to chat a bit more with you about future changes to this application. Cheers!_
 
 ## Setup/Installation Requirements
 * _Clone this repository from Github_
