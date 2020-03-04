@@ -1,7 +1,7 @@
 import React from 'react';
 import "./App.css";
-import { TiStar} from 'react-icons/ti';
-import { IoMdSearch} from 'react-icons/io';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faStar, faCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 function App() {
@@ -37,49 +37,52 @@ console.log(repos);
 
   return (
     <div className="Container">
-      <div className="wrapper">
-        <form onSubmit={evt => {
-          evt.preventDefault();
-          setInputValue(evt.target.elements.query.value);
-        }}>
-       
-        <i class="fas fa-search"></i>
-          <input 
-            type="text" 
-            name="query" 
-            className="github_search_bar"
-            placeholder="Search Github Repositories"
-            autoComplete="off"
-          />
-        </form>
-        {isLoading && <div>Searching...</div>}
-        {error && (
-          <div>
-            Unexpected Error Occurred. Please Try again
-          </div>)}
-       
-            <ul className="repo_list">
-              {repos.map((repo) => {
+      <div className= "header" >
+        <a href= "https://github.com/" target="_blank" className="github_getter">GG<FontAwesomeIcon className="circle"icon={faCircle} /></a>
+        </div>
+        {/* <div className="trending"><a href="https://github.com/trending">Trending Repo's</a></div> */}
+          <div className="wrapper">
+            <form onSubmit={evt => {
+              evt.preventDefault();
+              setInputValue(evt.target.elements.query.value);
+            }}>
+            <FontAwesomeIcon className="search_icon"icon={faSearch} />
+              <input 
+                type="text" 
+                name="query" 
+                className="github_search_bar"
+                placeholder="Search Keyword..."
+                autoComplete="off"
+              />
+            </form>
+            {isLoading && <div className="searching">Searching...</div>}
+            {error && (
+              <div>
+                Unexpected Error Occurred. Please Try again
+              </div>)}
             
-                return (
-                  <li className="repo_items"key={repo.id}>
-                    <a href={repo.html_url} target="_blank" className="list_details">
-                    {repo.name}
-                    </a>
+                <ul className="repo_list">
+                  {repos.sort((a, b) => {
+                    if (a.stargazers_count < b.stargazers_count) return 1
+                    else if (a.stargazers_count > b.stargazers_count) return -1
+                    return 0
+                  }).map((repo) => {         
+                    return (
                     
-                    <p><TiStar/>{repo.stargazers_count} </p>
-                    <p>{repo.description}</p>
-                    {/* {repo.owner.map((owner) => ( 
-                      <p key={owner.id}> 
-                      <p>{owner.id}</p>{owner.login}
-                      </p>))} */}
-                    
-                  </li>
-      
-                );
-              })}
-            </ul>
-         
+                      <li className="repo_items"key={repo.id}>
+                      <div className="row_one_details"> 
+                        <a href={repo.html_url} target="_blank" className="repo_name">
+                        {repo.full_name}<p>{repo.language}</p></a>
+                        <p><FontAwesomeIcon className="star" icon={faStar}/>
+                        {repo.stargazers_count}</p>
+                        </div>
+                        <p className="description">{repo.description}</p>
+                        
+                      </li>
+                    );
+                  })}
+                </ul>
+            
         </div>     
     </div>
   );
