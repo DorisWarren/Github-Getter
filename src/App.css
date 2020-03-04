@@ -30,19 +30,6 @@
   text-decoration:none; 
   cursor:pointer;  
 }
-.trending {
-  margin-top: 60px;
-  padding-right: 30px;
-  text-decoration: none;
-  color: #141B25;
-}
-
-.tending:hover{
-  color:#84878D; 
-  text-decoration:none; 
-  cursor:pointer;  
-}
-
 
 .circle {
   font-size:45px;
@@ -60,7 +47,7 @@
   color: #3B4454;
   line-height: 0px;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder { /* Chrome */
   color:white;
   opacity: 0.2; 
 }
@@ -72,7 +59,7 @@
 }
 
 .search_icon {
-  position: absolute;
+  position: fixed;
   top: 30%;
   left: 69%;
   width: 14px;

@@ -40,7 +40,6 @@ console.log(repos);
       <div className= "header" >
         <a href= "https://github.com/" target="_blank" className="github_getter">GG<FontAwesomeIcon className="circle"icon={faCircle} /></a>
         </div>
-        {/* <div className="trending"><a href="https://github.com/trending">Trending Repo's</a></div> */}
           <div className="wrapper">
             <form onSubmit={evt => {
               evt.preventDefault();
