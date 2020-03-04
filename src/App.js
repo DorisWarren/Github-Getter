@@ -15,25 +15,19 @@ function App() {
       return;
     }
     setIsLoading(true);
-
-    // API Call 
-
+    
     fetch("https://api.github.com/search/repositories?q=" + inputValue)
       .then(response => {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         setIsLoading(false);
         setRepos(data.items)
     }).catch(err => {
         setIsLoading(false);
         setError(true);
-        console.log(err);
     });
   }, [inputValue])
-
-console.log(repos);
 
   return (
     <div className="Container">
@@ -54,11 +48,11 @@ console.log(repos);
                 autoComplete="off"
               />
             </form>
-            {isLoading && <div className="searching">Searching...</div>}
-            {error && (
-              <div>
-                Unexpected Error Occurred. Please Try again
-              </div>)}
+              {isLoading && <div className="searching">Searching...</div>}
+              {error && (
+                <div>
+                  Unexpected Error Occurred. Please Try again
+                </div>)}
             
                 <ul className="repo_list">
                   {repos.sort((a, b) => {
@@ -67,21 +61,18 @@ console.log(repos);
                     return 0
                   }).map((repo) => {         
                     return (
-                    
                       <li className="repo_items"key={repo.id}>
-                      <div className="row_one_details"> 
-                        <a href={repo.html_url} target="_blank" className="repo_name">
-                        {repo.full_name}<p>{repo.language}</p></a>
-                        <p><FontAwesomeIcon className="star" icon={faStar}/>
-                        {repo.stargazers_count}</p>
+                        <div className="row_one_details"> 
+                          <a href={repo.html_url} target="_blank" className="repo_name">
+                          {repo.full_name}<p>{repo.language}</p></a>
+                          <p><FontAwesomeIcon className="star" icon={faStar}/>
+                          {repo.stargazers_count}</p>
                         </div>
-                        <p className="description">{repo.description}</p>
-                        
+                          <p className="description">{repo.description}</p>
                       </li>
                     );
                   })}
                 </ul>
-            
         </div>     
     </div>
   );
