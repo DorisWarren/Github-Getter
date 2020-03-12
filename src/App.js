@@ -1,5 +1,6 @@
 import React from 'react';
-import "./App.css";
+import "./App.scss";
+import Header from "./Header";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faStar, faCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -31,10 +32,8 @@ function App() {
 
   return (
     <div className="Container">
-      <div className= "header" >
-        <a href= "https://github.com/" target="_blank" className="github_getter">GG<FontAwesomeIcon className="circle"icon={faCircle} /></a>
-        </div>
-          <div className="wrapper">
+      <Header />
+          {/* <div className="wrapper"> */}
             <form onSubmit={evt => {
               evt.preventDefault();
               setInputValue(evt.target.elements.query.value);
@@ -73,7 +72,7 @@ function App() {
                     );
                   })}
                 </ul>
-        </div>     
+        {/* </div>      */}
     </div>
   );
 }
