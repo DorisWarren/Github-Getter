@@ -22,6 +22,7 @@ function App() {
         return response.json();
       })
       .then(data => {
+        console.log(data)
         setIsLoading(false);
         setRepos(data.items)
     }).catch(err => {
@@ -30,22 +31,24 @@ function App() {
     });
   }, [inputValue])
 
+  console.log(repos)
+
   return (
     <div className="Container">
       <Header />
         <div className="form-container">
           <form onSubmit={evt => {
-                evt.preventDefault();
-                setInputValue(evt.target.elements.query.value);
-              }}>
-              <FontAwesomeIcon className="search_icon"icon={faSearch} />
-                <input 
-                  type="text" 
-                  name="query" 
-                  className="search_bar"
-                  placeholder="Search..."
-                  autoComplete="off"
-                />
+            evt.preventDefault();
+            setInputValue(evt.target.elements.query.value);
+          }}>
+           <FontAwesomeIcon className="search_icon"icon={faSearch} />
+            <input 
+              type="text" 
+              name="query" 
+              className="search_bar"
+              placeholder="Search..."
+              autoComplete="off"
+            />
             </form>
               </div>
                 <div className="result-container">
@@ -56,8 +59,7 @@ function App() {
                         Unexpected Error Occurred. Please Try again
                       </div>)}
                   </div>
-              <div className="result-list">
-            
+                  <div className="result-list">
                     {repos.sort((a, b) => {
                       if (a.stargazers_count < b.stargazers_count) return 1
                       else if (a.stargazers_count > b.stargazers_count) return -1
@@ -75,16 +77,14 @@ function App() {
                               </div>
                             </div>
                           </div>
-
                           <div className="info">
                             <p className="description">{repo.description}</p>
                           </div>
-
                         </div>
                       );
                     })}
-                  </div>
                 </div>
+              </div>
     </div>
   );
 }

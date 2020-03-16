@@ -1,7 +1,5 @@
 # _Github-Getter_
 
-## _MadeInHAUS/Frontend_dev-exercise_
-
 #### _March 4 ,2020_
 
 #### Created by: _**Doris Warren**_
